@@ -17,6 +17,7 @@
 #include "motion_sensor.h"
 #include "alarm.h"
 #include "sd_card.h"
+#include "ble_com.h"
 
 //=====[Declaration of private defines]========================================
 
@@ -32,6 +33,7 @@ typedef enum{
 //=====[Declaration and initialization of public global objects]===============
 
 UnbufferedSerial uartUsb(USBTX, USBRX, 115200);
+DigitalOut led_2(LED2);
 
 //=====[Declaration of external public global variables]=======================
 
@@ -192,7 +194,12 @@ static void pcSerialComSaveNewCodeUpdate( char receivedChar )
 static void pcSerialComCommandUpdate( char receivedChar )
 {
     switch (receivedChar) {
-        case 'b': bleComStringWrite(receivedChar); break;    //@Nico
+        case 'b': 
+            led_2 = ON;
+            delay(1000);
+            bleComStringWrite(&receivedChar);
+            led_2 = OFF;
+            break;    //@Nico
         case '1': commandShowCurrentAlarmState(); break;
         case '2': commandShowCurrentGasDetectorState(); break;
         case '3': commandShowCurrentOverTemperatureDetectorState(); break;

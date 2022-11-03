@@ -50,14 +50,14 @@ void smartHomeSystemInit()
 
 void smartHomeSystemUpdate()
 {
-    userInterfaceUpdate();
-    fireAlarmUpdate();
-    intruderAlarmUpdate();
-    alarmUpdate();
-    eventLogUpdate();
+    //userInterfaceUpdate();
+    //fireAlarmUpdate();
+    //intruderAlarmUpdate();
+    //alarmUpdate();
+    //eventLogUpdate();
     pcSerialComUpdate();
-    motorControlUpdate();
-    lightSystemUpdate();
+    //motorControlUpdate();
+    //lightSystemUpdate();
     bleComUpdate();
     delay(SYSTEM_TIME_INCREMENT_MS);
 }

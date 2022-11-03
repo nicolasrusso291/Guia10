@@ -1,7 +1,7 @@
 //=====[Libraries]=============================================================
 
 #include "mbed.h"
-
+#include "arm_book_lib.h"
 #include "ble_com.h"
 #include "gate.h"
 
@@ -12,6 +12,8 @@
 //=====[Declaration and initialization of public global objects]===============
 
 UnbufferedSerial uartBle(PD_5, PD_6, 9600);
+DigitalOut led_3(LED3);
+
 
 //=====[Declaration of external public global variables]=======================
 
@@ -30,7 +32,11 @@ void bleComUpdate()
     char receivedChar = bleComCharRead();
     if( receivedChar != '\0' ) {
         switch (receivedChar) {
-            case 'b': prender_led; break;    //@Nico
+            case 'b': 
+                led_3 = ON;
+                delay(1000);
+                led_3 = OFF;
+                break;    //@Nico
             case 'O': gateOpen(); break;
             case 'C': gateClose(); break;
         }
