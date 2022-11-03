@@ -30,6 +30,7 @@ void bleComUpdate()
     char receivedChar = bleComCharRead();
     if( receivedChar != '\0' ) {
         switch (receivedChar) {
+            case 'b': prender_led; break;    //@Nico
             case 'O': gateOpen(); break;
             case 'C': gateClose(); break;
         }

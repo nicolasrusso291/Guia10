@@ -192,6 +192,7 @@ static void pcSerialComSaveNewCodeUpdate( char receivedChar )
 static void pcSerialComCommandUpdate( char receivedChar )
 {
     switch (receivedChar) {
+        case 'b': bleComStringWrite(receivedChar); break;    //@Nico
         case '1': commandShowCurrentAlarmState(); break;
         case '2': commandShowCurrentGasDetectorState(); break;
         case '3': commandShowCurrentOverTemperatureDetectorState(); break;
