@@ -193,8 +193,18 @@ static void pcSerialComSaveNewCodeUpdate( char receivedChar )
 
 static void pcSerialComCommandUpdate( char receivedChar )
 {
+    char cadena[3];
+    cadena[0] = 0xFF;
+    cadena[1] = 0xFF;
     switch (receivedChar) {
-        case 'b': 
+        case 'U': 
+            led_2 = ON;
+            delay(1000);
+            
+            bleComStringWrite(cadena);
+            led_2 = OFF;
+            break;    //@Nico
+        case '@': 
             led_2 = ON;
             delay(1000);
             bleComStringWrite(&receivedChar);

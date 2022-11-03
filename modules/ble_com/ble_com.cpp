@@ -32,7 +32,12 @@ void bleComUpdate()
     char receivedChar = bleComCharRead();
     if( receivedChar != '\0' ) {
         switch (receivedChar) {
-            case 'b': 
+            case 'U': 
+                led_3 = ON;
+                delay(1000);
+                led_3 = OFF;
+                break;    //@Nico
+            case '@': 
                 led_3 = ON;
                 delay(1000);
                 led_3 = OFF;
