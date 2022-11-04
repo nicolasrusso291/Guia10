@@ -11,7 +11,7 @@
 
 //=====[Declaration and initialization of public global objects]===============
 
-UnbufferedSerial uartBle(PD_5, PD_6, 9600);
+UnbufferedSerial uartBle(PD_5, PD_6, 115000);
 DigitalOut led_3(LED3);
 
 
